@@ -18,7 +18,7 @@ const DisplayNameForm = () => {
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Enter Your Name</h1>
+      <h1 className={styles.title}>Full Name Display</h1>
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputGroup}>
