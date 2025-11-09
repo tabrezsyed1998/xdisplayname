@@ -5,24 +5,20 @@ const DisplayNameForm = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [fullName, setFullName] = useState("");
-  const [error, setError] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!firstName.trim() || !lastName.trim()) {
-      setError("Please fill in both fields.");
+    if (firstName.trim() && lastName.trim()) {
+      setFullName(`${firstName.trim()} ${lastName.trim()}`);
+    } else {
       setFullName("");
-      return;
     }
-
-    setError("");
-    setFullName(`${firstName} ${lastName}`);
   };
 
   return (
     <div className={styles.container}>
-      <h1 className={styles.title}>Full Name Display</h1>
+      <h1 className={styles.title}>Enter Your Name</h1>
 
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.inputGroup}>
@@ -51,8 +47,6 @@ const DisplayNameForm = () => {
           Submit
         </button>
       </form>
-
-      {error && <p className={styles.error}>{error}</p>}
 
       {fullName && (
         <p className={styles.result}>
